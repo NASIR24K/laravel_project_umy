@@ -18,11 +18,11 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+///front end Route////////////////////
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-
+////end Fornt End///////////////////
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -64,3 +64,7 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/admin/logout', [BrandController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/register', function(){
+    return view('admin.register')->name('admin.register');
+});
+Route::POST('/admin/register/submit', [BrandController::class, 'register'])->name('admin.register.submit');

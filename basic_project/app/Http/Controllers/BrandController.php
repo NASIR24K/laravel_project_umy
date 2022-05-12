@@ -165,4 +165,10 @@ class BrandController extends Controller
        Auth::logout();
        return redirect()->route('login')->with('user', 'Logout Successfully');
    }
+   function register(){
+       dd('Hi');
+       auth::register();
+          return redirect()->route('admin.index')->with('user', 'Resister Succefully');
+   }
+ 
 }
